@@ -1,8 +1,213 @@
-<html>
-  <head>
-    <title>메인페이지</title>
-  </head>
-  <body>
-    <h2>메인페이지입니다..</h2>
-  </body>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기소개서</title>
+    <style>
+        /* 1. 기본 스타일 리셋 및 전체 배경 설정 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Malgun Gothic', dotum, sans-serif;
+            line-height: 1.6;
+            background-color: #f9fbfd; /* 눈이 편안한 연한 푸른빛 도는 배경 */
+            color: #333333;
+        }
+
+        /* 2. 상단 헤더 스타일 */
+        header {
+            background-color: #1e3a8a; /* 신뢰감을 주는 네이비 색상 */
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 3. 메인 콘텐츠 레이아웃 (중앙 정렬 및 여백) */
+        main {
+            max-width: 900px; /* 화면이 너무 퍼지지 않게 최대 가로폭 제한 */
+            margin: 30px auto; /* 좌우 중앙 정렬 */
+            padding: 0 20px;
+        }
+
+        /* 4. 섹션 공통 스타일 */
+        section {
+            background-color: #ffffff;
+            border-radius: 8px; /* 테두리 둥글게 */
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* 은은한 그림자 효과 */
+        }
+        section h2 {
+            font-size: 1.8rem;
+            color: #1e3a8a;
+            border-left: 5px solid #3b82f6; /* 제목 왼쪽에 포인트를 주는 파란 선 */
+            padding-left: 12px;
+            margin-bottom: 20px;
+        }
+
+        /* 5. 프로필 섹션 스타일 (가로 배치) */
+        #profile article {
+            display: flex;
+            align-items: center;
+            gap: 25px; /* 이미지와 글 사이의 간격 */
+            flex-wrap: wrap; /* 화면이 좁아지면 아래로 떨어지게 설정 */
+        }
+        #profile img {
+            border-radius: 50%; /* 캐리커쳐를 동그랗게 만들기 */
+            border: 3px solid #3b82f6;
+            object-fit: cover;
+        }
+        #profile p {
+            flex: 1; /* 남은 공간을 글씨가 꽉 채우도록 설정 */
+            font-size: 1.1rem;
+        }
+
+        /* 6. 교육 과정 섹션 스타일 */
+        #education article {
+            margin-bottom: 20px;
+        }
+        #education article:last-child {
+            margin-bottom: 0;
+        }
+        #education h3 {
+            font-size: 1.3rem;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        /* 7. 취미 섹션 스타일 (이미지 격자 배치) */
+        #hobbies article {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #e5e7eb; /* 취미 사이를 구분하는 점선 */
+        }
+        #hobbies article:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        #hobbies h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        #hobbies p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        /* 이미지들을 가로로 나란히 배치하기 위한 Flexbox */
+        #hobbies figure {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        #hobbies img {
+            border-radius: 6px;
+            width: calc(50% - 8px); /* 한 줄에 2개씩 배치 (여백 제외) */
+            min-width: 250px; /* 화면이 아주 작아져도 최소 크기 유지 */
+            height: 200px;
+            object-fit: cover; /* 이미지가 찌그러지지 않고 비율 유지하며 채워짐 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #hobbies figcaption {
+            width: 100%; /* 캡션은 이미지 아래에 한 줄을 다 차지하도록 */
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 8px;
+        }
+
+        /* 8. 푸터 스타일 */
+        footer {
+            background-color: #f3f4f6;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+        }
+        footer p:first-child {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>안녕하세요, 저를 소개합니다</h1>
+        <p>현재 AI 에이전트 마스터 과정을 통해 성장하고 있는 미래의 전문가입니다.</p>
+    </header>
+
+    <main>
+        
+        <section id="profile">
+            <h2>프로필</h2>
+            <article>
+                <img src="caricature.jpg" alt="나를 표현한 캐리커쳐 이미지" width="160" height="160">
+                <p>나를 가장 잘 표현하는 캐리커쳐입니다. 늘 호기심 가득한 눈으로 새로운 지식을 배우고, 복잡한 문제를 효율적으로 해결하는 과정에서 큰 보람을 느낍니다.</p>
+            </article>
+        </section>
+
+        <section id="education">
+            <h2>현재 도전 중인 과정: AI 에이전트 마스터</h2>
+            
+            <article>
+                <h3>지원 동기</h3>
+                <p>
+                    인공지능 기술이 급격하게 발전함에 따라, 단순히 완성된 AI 툴을 사용하는 것에 그치지 않고 실무 프로세스를 자동화하고 정교한 솔루션을 제공하는 'AI 에이전트'의 가능성에 깊이 매료되었습니다. 한 단계 더 높은 전문성을 확보하고 커리어 도약을 이루기 위해 본 과정에 지원하였습니다.
+                </p>
+            </article>
+
+            <article>
+                <h3>과정을 통해 기대하는 바</h3>
+                <p>
+                    이번 과정을 통해 대형 언어 모델(LLM)과 다양한 업무 자동화 도구의 메커니즘을 명확히 이해하고 싶습니다. 나아가 복잡한 비즈니스 환경에서 실질적으로 생산성을 극대화할 수 있는 나만의 'AI 에이전트 시스템'을 직접 기획하고 구현해 내는 역량을 갖추기를 기대합니다.
+                </p>
+            </article>
+        </section>
+
+        <section id="hobbies">
+            <h2>나의 취미 생활</h2>
+
+            <article>
+                <h3>취미 1: [첫 번째 취미 이름을 입력하세요]</h3>
+                <p>첫 번째 취미에 대한 간단한 설명입니다. 이 활동을 할 때 온전히 몰입하며 마음의 여유를 얻습니다.</p>
+                <figure>
+                    <img src="hobby1_1.jpg" alt="첫 번째 취미 관련 사진 1">
+                    <img src="hobby1_2.jpg" alt="첫 번째 취미 관련 사진 2">
+                    <figcaption>※ 첫 번째 취미 활동을 즐기는 순간들</figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h3>취미 2: [두 번째 취미 이름을 입력하세요]</h3>
+                <p>두 번째 취미에 대한 간단한 설명입니다. 일상에서 벗어나 새로운 에너지를 충전하는 저만의 방법입니다.</p>
+                <figure>
+                    <img src="hobby2_1.jpg" alt="두 번째 취미 관련 사진 1">
+                    <img src="hobby2_2.jpg" alt="두 번째 취미 관련 사진 2">
+                    <figcaption>※ 두 번째 취미 활동을 즐기는 순간들</figcaption>
+                </figure>
+            </article>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Copyright © 2026 내이름. All rights reserved.</p>
+        <p>Email: myemail@example.com</p>
+    </footer>
+
+</body>
 </html>
